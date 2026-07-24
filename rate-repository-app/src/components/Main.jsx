@@ -1,19 +1,24 @@
-import Constants from "expo-constants";
 import { Text, StyleSheet, View } from "react-native";
+import { Route, Routes } from "react-router-native";
 
+import AppBar from "./AppBar";
 import RepositoryList from "./RepositoryList";
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: Constants.statusBarHeight,
-    flex: 1,
+  main: {
+    flexGrow: 1,
+    flexShrink: 1,
+    backgroundColor: "#e1e4e8",
   },
 });
 
 const Main = () => {
   return (
-    <View style={styles.container}>
-      <RepositoryList />
+    <View style={styles.main}>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<RepositoryList />} />
+      </Routes>
     </View>
   );
 };
