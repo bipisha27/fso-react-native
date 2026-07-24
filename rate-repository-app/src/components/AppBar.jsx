@@ -3,20 +3,30 @@ import Constants from "expo-constants";
 
 import AppBarTab from "./AppBarTab";
 import theme from "../theme";
+import { ScrollView } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    flexDirection: "row",
     backgroundColor: theme.colors.appBarBackground,
+  },
+  scrollContent: {
+    flexDirection: "row",
     padding: 12,
+  },
+  tabSeparator: {
+    width: 20,
   },
 });
 
 const AppBar = () => {
   return (
     <View style={styles.container}>
-      <AppBarTab text="Repositories" />
+      <ScrollView horizontal contentContainerStyle={styles.scrollContent}>
+        <AppBarTab text="Repositories" to="/" />
+        <View style={styles.tabSeparator} />
+        <AppBarTab text="Sign In" to="/signin" />
+      </ScrollView>
     </View>
   );
 };
