@@ -1,7 +1,5 @@
 import { FlatList, View, StyleSheet } from "react-native";
 
-import { useQuery } from "@apollo/client/react";
-
 import RepositoryItem from "./RepositoryItem";
 import useRepositories from "../hooks/useRepositories";
 
