@@ -21,13 +21,12 @@ const styles = StyleSheet.create({
   infoContainer: {
     flexShrink: 1,
     justifyContent: "space-between",
-
-    fullName: {
-      marginBottom: 4,
-    },
-    description: {
-      marginBottom: 8,
-    },
+  },
+  fullName: {
+    marginBottom: 4,
+  },
+  description: {
+    marginBottom: 8,
   },
 });
 
