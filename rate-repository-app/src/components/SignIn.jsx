@@ -61,6 +61,10 @@ const SignIn = () => {
     }
   };
 
+  return <SignInContainer onSubmit={onSubmit} />;
+};
+
+export const SignInContainer = ({ onSubmit }) => {
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -68,11 +72,12 @@ const SignIn = () => {
   });
 
   const usernameError = formik.touched.username && formik.errors.username;
-  const passwordError = formik.touched && formik.errors.password;
+  const passwordError = formik.touched.password && formik.errors.password;
 
   return (
     <View style={styles.container}>
       <TextInput
+        testID="usernameInput"
         style={[styles.input, usernameError && styles.inputError]}
         placeholder="username"
         value={formik.values.username}
@@ -83,6 +88,7 @@ const SignIn = () => {
       {usernameError && <Text style={styles.errorText}>{usernameError}</Text>}
 
       <TextInput
+        testID="passwordInput"
         style={[styles.input, passwordError && styles.inputError]}
         placeholder="password"
         secureTextEntry
@@ -92,7 +98,11 @@ const SignIn = () => {
 
       {passwordError && <Text style={styles.errorText}>{passwordError}</Text>}
 
-      <Pressable style={styles.button} onPress={formik.handleSubmit}>
+      <Pressable
+        testID="submitButton"
+        style={styles.button}
+        onPress={formik.handleSubmit}
+      >
         <Text style={{ color: "white" }} fontWeight="bold">
           Sign in
         </Text>
