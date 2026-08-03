@@ -47,6 +47,8 @@ const AppBar = () => {
           <>
             <AppBarTab text="Create a review" to="/review" />
             <View style={styles.tabSeparator} />
+            <AppBarTab text="My reviews" to="/my-reviews" />
+            <View style={styles.tabSeparator} />
             <AppBarTab text="Sign out" onPress={onSignOut} />
           </>
         ) : (
