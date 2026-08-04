@@ -15,7 +15,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const SingleRepository = () => {
   const { id } = useParams();
 
-  const { repository, loading } = useRepository(id);
+  const { repository, loading, fetchMore } = useRepository(id, 4);
 
   if (loading) {
     return null;
@@ -30,6 +30,8 @@ const SingleRepository = () => {
       data={reviewNodes}
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={({ id }) => id}
+      onEndReached={fetchMore}
+      onEndReachedThreshold={0.5}
       ListHeaderComponent={() => (
         <RepositoryItem item={repository} showGitHubButton />
       )}
